@@ -6,8 +6,10 @@ export const connectDB = async() => {
         console.log(`Mongodb connected: ${conn.connection.host}`.cyan.underline.bold);
     } catch (err) {
         console.log(`Error messae:${err.message}`.red);
-        process.exit(1);
+          if (process.env.NODE_ENV !== "production") {
+      process.exit(1);
     }
-    
+    }
+
 }
 
